@@ -1,9 +1,7 @@
-# Programming Language Theory
+## Programming Language Theory
 
-### 2025 Class Attributes ###
-* 5118014-01: Mon 5PM-6PM & Tue 4PM-6PM@Room 103, S4-1
-* 5118014-02: Tue 9AM-11AM@Room 206 & Fri 11-12PM @Room 103, S4-1
-* Instructor: Shin Hong https://hongshin.github.io :e-mail: hongshin@gmail.com :door: 316 S4-1
+### Memo ###
+
 
 ### Learning Materials ###
 
@@ -19,6 +17,7 @@
 - [Programming Language Theory, 2024 Fall](https://github.com/hongshin/proglang/tree/2024)
 
 **Recommended readings**
+- [관련 블로그] (https://wonlf.tistory.com/entry/Rust-1-%EA%B0%9C%EB%85%90%EA%B3%BC-%EA%B5%AC%EC%A1%B0?category=1052175)
 - [프로그래밍언어 이야기](http://kwangkeunyi.snu.ac.kr/pl-book-draft.pdf) by [Prof. Kwangkeun Yi](http://kwangkeunyi.snu.ac.kr/) 
 - [프로그래밍 언어의 원리](https://prl.korea.ac.kr/courses/cose212/2023/pl-book.pdf) by [Prof. Hakjoo Oh](https://prl.korea.ac.kr/members/hakjoo-oh/)
 - [The Rust Programming Language](https://doc.rust-lang.org/book)

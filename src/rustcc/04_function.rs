@@ -13,19 +13,19 @@ fn main () {
 
     println!("r: {}, double(3): {}", r, double(3)) ;
 
-    /*
+    
     {
         let r = 3 ;
         println!("r: {}, double(3): {}", r, double(3)) ;
 
-        //println!("multiply(5): {}", multiply(r)) ;
+        println!("multiply(5): {}", multiply(r)) ;
     }
-    */
+    
 }
 
-/*
+
 fn multiply (n: i32) -> i32 {
     fact * n 
-}
-*/
+} // 함수를 밑에다 선언해도 잘 알아먹음
+
 

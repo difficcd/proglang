@@ -1,6 +1,6 @@
 
 
-// https://dhghomon.github.io/easy_rust/Chapter_18.html
+// https://dhghomon.github.io/easy_rust/Chapter_20.html
 
 
 fn print_country_1(country_name: String) {
@@ -110,6 +110,18 @@ fn main(){
         number = 100;
     }
     println!("{}", number);
+
+    
+    'outer: for i in 0..5 {          // 바깥쪽 루프에 'outer 라벨
+        for j in 0..5 {
+            println!("i = {}, j = {}", i, j);
+            if i == 2 && j == 3 {
+                println!("조건 충족 → 바깥 루프까지 break!");
+                break 'outer;        // 바깥쪽 루프까지 즉시 탈출
+            }
+        }
+    }
+
     
     
 }

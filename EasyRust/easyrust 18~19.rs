@@ -53,7 +53,7 @@ fn main(){
 
 
     
-//  Chapter 18 : Copy types
+//  Chapter 19 : Copy types
 
     /* copy types : These simple types are all on the stack, 
        and the compiler knows their size. 

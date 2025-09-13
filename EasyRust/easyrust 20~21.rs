@@ -114,6 +114,9 @@ fn main() {
     println!("{:?}", my_vec1);
     println!("{:?}", my_vec2);
   
-  
+    for i in my_vec1 {
+      print!("{} ", i) ;
+    } // C++ style (iterator)
+    println!("") ;
     
 }

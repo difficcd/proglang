@@ -67,7 +67,7 @@ fn main(){
     prints_number(my_number); 
     prints_number(my_number);
     // i32 : Copy trait 구현, 매개변수값은 복사된 값 
-
+    
     // *String 은 Copy 가 아니기에(heap data) Copy가 아닌 move (ownership change)
     
     let country = String::from("Kiribati");
@@ -80,7 +80,7 @@ fn main(){
 
     
     let mut my_string = String::new();
-    for _ in 0..50 { // 반복문은 python 과 비슷
+    for _ in 0..50 { // 반복문은 python 과 비슷 range(0,50) >> 0..50
         my_string.push_str("Here are some more words "); // push words
         get_length_1(my_string.clone()); 
     } // That's 50 clones
@@ -111,6 +111,8 @@ fn main(){
     }
     println!("{}", number);
 
+
+    // 9.9 수업 내용 보충
     
     'outer: for i in 0..5 {          // 바깥쪽 루프에 'outer 라벨
         for j in 0..5 {
@@ -121,9 +123,6 @@ fn main(){
             }
         }
     }
-
-    
-    
 }
 
 

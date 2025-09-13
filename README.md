@@ -2,7 +2,11 @@
 * https://dhghomon.github.io/easy_rust/Chapter_9.html
 
 ### Memo ###
+Next : [Tuples](https://dhghomon.github.io/easy_rust/Chapter_22.html)  
+~9.14 집중 학습
+~9.15 까지 Chapter 30 까지 완료**
 
+*** 
 
 
 ### Learning Materials ###

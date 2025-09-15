@@ -1,5 +1,4 @@
 ## Programming Language Theory
-* https://dhghomon.github.io/easy_rust/Chapter_9.html
 
 ### Memo ###
 

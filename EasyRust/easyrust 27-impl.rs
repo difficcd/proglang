@@ -1,5 +1,35 @@
 
 
+// ===== self & Self 설명 =====
+struct Person {
+    name: String,
+    // struct 인스턴스 생성 :
+    //    let p = Person {name: String::from("name"),};
+    //    사용은 p.name...
+}
+
+impl Person {
+    // 1 ) Self = Person 이라는 타입 그 자체, 바꿔도 돌아감
+    fn new(name: String) -> Self {   // 여기서 Self == Person
+        Self { name }                // 여기서도 Self == Person
+    }
+
+    // 2 ) self = 객체 그 자신 (instance) 
+    fn consume(self) {         // self: 값 자체를 소유 (move)
+        println!("bye, {}", self.name);
+    }
+
+    fn borrow(&self) {         // self: 불변 참조
+        println!("hi, {}", self.name);
+    }
+
+    fn borrow_mut(&mut self) { // self: 가변 참조
+        self.name.push_str("!");
+    }
+}
+
+
+
 
 
 #[derive(Debug)]

@@ -13,7 +13,9 @@
 * **[Easy Rust](https://dhghomon.github.io/easy_rust/)**
 * **[*Introduction to Programming Languages* ](https://hjaem.info/itpl)**
   - the online version of this textbook is freely available to everyone.
-* **[**Grammar understanding**](https://web.mit.edu/6.031/www/sp21/classes/17-regex-grammars/)**
+    
+* **[**Grammar understanding**](https://web.mit.edu/6.031/www/sp21/classes/17-regex-grammars/)**  
+* **[Chomsky hierarchy](https://en.wikipedia.org/wiki/Chomsky_hierarchy)**  
 
   
 **Previous Class**

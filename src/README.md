@@ -1,7 +1,7 @@
 ### 기본 명령어 정리  
 
 cmd/powershell  
->> mkdir project,  cd project/
+> mkdir project,  cd project/
 
 > **cargo init** : 해당 dir에서 빌드할 수 있게 세팅해줌      
     cargo init 이후 ls를 해보면 Cargo.toml(설정파일), src(dir) 생성됨    

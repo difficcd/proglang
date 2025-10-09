@@ -16,7 +16,8 @@ project dir: **cargo run**
 > 실행 명령어로, rs 파일을 실행시켜 결과를 내놓게 함  
   이때 cargo 가 내는 출력을 보고싶지 않으면 **cargo -q run** 으로 실행가능  
 
-   
+
+**
    
    
 * cd \ : root dir,  cd .. : parent dir )
@@ -24,5 +25,5 @@ project dir: **cargo run**
 
 * vim 기초 명령어  
   (1)  모드 :  입력 모드 i  명령 모드 Esc  저장/종료 :  
-  (2)  저장/종료 :w 저장, :q 종료, :wq/:x 저장 후 종료  
-               :q! 강제 종료  ZZ(=:wq, i모드일때 가능)
+  (2)  저장/종료 :w 저장, :q 종료, :wq/:x 저장 후 종료   
+                 :q! 강제 종료  ZZ(=:wq, i모드일때 가능)   

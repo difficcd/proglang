@@ -16,7 +16,7 @@ project dir: **cargo run**
 > 실행 명령어로, rs 파일을 실행시켜 결과를 내놓게 함  
   이때 cargo 가 내는 출력을 보고싶지 않으면 **cargo -q run** 으로 실행가능  
 
- <\ br>
+ <\br>
 
 - ae/ 에서 cargo build 한 이후 toml 파일을 보면 lalrpop 이라는 lib 을 쓰는것을 알 수 있음    
 - LALR 은 파싱을 위한 library. build.rs 또한 lalrpop 을 쓰기 위한 파일  

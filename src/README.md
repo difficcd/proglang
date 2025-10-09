@@ -2,8 +2,6 @@
 
 [ cmd/powershell ]
 
-> mkdir project,  cd project/ 
-
  **cargo init**
 > 해당 dir에서 빌드할 수 있게 세팅해줌      
     cargo init 이후 ls를 해보면 Cargo.toml(설정파일), src(dir) 생성됨    
@@ -21,7 +19,9 @@ project dir: **cargo run**
    
    
    
-* cd \ : root dir,  cd .. : parent dir )    
+* cd \ : root dir,  cd .. : parent dir )
+*  mkdir project,  cd project/  del project 
+
 * vim 기초 명령어  
   1) 모드 :  입력 모드 i  명령 모드 Esc  저장/종료 :  
   2) 저장/종료 :w 저장, :q 종료, :wq/:x 저장 후 종료  

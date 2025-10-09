@@ -17,6 +17,13 @@ project dir: **cargo run**
   이때 cargo 가 내는 출력을 보고싶지 않으면 **cargo -q run** 으로 실행가능  
 
 
+- ae/ 에서 cargo build 한 이후 toml 파일을 보면 lalrpop 이라는 lib 을 쓰는것을 알 수 있음    
+- LALR 은 파싱을 위한 library. build.rs 또한 lalrpop 을 쓰기 위한 파일  
+- ae.lalrpop : lalr lib 에서 입력받아 사용. 파서를 만드는 코드 (grammar 받아서 파서 만들어줌)  
+- ast.rs는 AST 를 Rust 구조체로 정의한 파일.
+- ae.lalrpop은 ast에 있는 code 를 가져다 씀 (결국 AST 를 만들어야 하기 떄문)
+- main.rs는 AST 를 만들고 실행시키는 코드  
+
   
 ***
    

@@ -23,6 +23,6 @@ project dir: **cargo run**
 *  mkdir project,  cd project/  del project 
 
 * vim 기초 명령어  
-  1) 모드 :  입력 모드 i  명령 모드 Esc  저장/종료 :  
-  2) 저장/종료 :w 저장, :q 종료, :wq/:x 저장 후 종료  
+  (1)  모드 :  입력 모드 i  명령 모드 Esc  저장/종료 :  
+  (2)  저장/종료 :w 저장, :q 종료, :wq/:x 저장 후 종료  
                :q! 강제 종료  ZZ(=:wq, i모드일때 가능)

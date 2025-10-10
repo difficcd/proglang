@@ -9,12 +9,23 @@ use ast::Opcode::{Add, Sub} ;
 
 lalrpop_mod!(pub ae) ;
 
+
 fn interp (e: Box<Expr>) -> i32 
+  // ####  여기서의 interp 가 Semantics 구현 (Evaluation)
+  //       04의 15p 를 직접 구현해둔 블록, 중요함
+  
+  /*       (e: Box<Expr>) -> i32 :
+           Box<Expr> 받고 (domain) i32로 보내주는(codomain) 함수
+           e 자체는 reference 이기 때문에 *e가 e가 가리키는 값이 됨
+  */
 {
     match *e {
         Op(l, Add, r) => interp(l) + interp(r),
         Op(l, Sub, r) => interp(l) - interp(r),
         Num(n) => n
+      
+      // Op의 l(left), r(right) 는 Box (ast.rs 참조)
+      // Add, Sub 매칭을 구분(+, -)  Op에 해당하는 모든 경우 확인(rustc)
     } 
 }
 
@@ -65,6 +76,5 @@ fn main()
     println!("interp(e2): {}", interp(e2)) ;
 
   // ####  앞으로 많이 쓸 것은 e2 표기
-  // ####  여기서의 interp 가 Semantics 구현
   
 }

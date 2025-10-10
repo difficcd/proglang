@@ -8,12 +8,14 @@ pub enum Expr {
     Num(i32),
     Op(Box<Expr>, Opcode, Box<Expr>),
     // Box<Expr> : recursive 
-    
+
     /* 그냥 Op(Expr, Opcode, Expr)로 정의해버리면 
        Expr 의 크기결정 불가능! (가능한 PL도 있기는 함)
        이런 이유로 Rust의 heap을 사용하는 pointer격 개념 필요
        malloc : Box, 메모리 잡아주면서 포인팅 가능
-       
+
+       Box는 결국 reference이므로 recursive 구조 정의 가능하다!
+
        ex)  struct a {int n;  struct a next;}; (X)
             struct a {int n;  struct a* next;}; (O) 
                       **포인터는 가리킬 뿐이니 크기결정 가능 */
@@ -77,4 +79,3 @@ impl fmt::Display for Opcode
         }
     }
 }
-

@@ -18,9 +18,9 @@
 * Immutable, mutable variable
 * shadowing
 * Reference, Pointer >> &, {:p}
-* Fancy printing (raw text)
+* Fancy printing (raw text, {:X}, {:o^10}, {: <15}{: >15})
 * Byte Sring : b"" (+ br)
-* {:X}, {:o^10}, {: <15}{: >15}
+
 
 <br>
 

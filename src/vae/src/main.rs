@@ -9,7 +9,14 @@ use ast::Opcode::{Add, Sub} ;
 
 lalrpop_mod!(pub vae) ;
 
+
+// BTreeMap<K, V>는 본래 키-값 쌍을 저장하는 정렬된 맵
+// 참조를 붙인 &BTreeMap<K, V> 는 실제 맵을 복사하지 않고 참조만 전달할 때 쓰는 표현
+//     let mut map = BTreeMap::new(); 이런 식으로 정의하고,
+//     map.insert("one".to_string(), 1); 이런 식으로 사용함
+
 fn interp (e: Box<Expr>, env: &BTreeMap::<String, i32>) -> i32 
+               
 {
     match *e {
         Op(l, Add, r) => interp(l, env) + interp(r, env),

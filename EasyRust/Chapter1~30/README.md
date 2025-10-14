@@ -11,7 +11,7 @@
 * Make Function & Function Returns
 * Block notation, Debug trait print {:?}
 
-<br>
+
 
 #### EasyRust 09~13
 * r# keyword 
@@ -22,8 +22,6 @@
 * Byte Sring : b"" (+ br)
 
 
-<br>
-
 #### EasyRust 14~17
 * String, &str
 * size_of_val(), format!(), into() 
@@ -33,11 +31,44 @@
 * Shadowing again
 * Borrowing - String
 
-<br>
-
-#### EasyRust 14~17
-* 
 
 
+#### EasyRust 18~19
+* reference, ownership: &mut, mut ..
+* copytype
+* .clone()
+* for, loop, lable
+* codeblock
+
+
+#### EasyRust 20~21
+* array / vector : push(), capacity(), into()
+
+#### EasyRust 22~23
+* Tuple
+* Control flow : if, match
+
+
+#### EasyRust 24~25
+* struct / enum
+
+#### EasyRust 26 
+* Loop
   
+#### EasyRust 27 
+* impl - self, Self / pub
+
+#### EasyRust 28
+* to_string() / destruct
+
+#### EasyRust 29~30
+* ```#[derive()]```
+* Display & Debug trait
+* std::cmp::PartialOrd
+* <T: Display> <mytype: Debug>
+* Reference & dot operator : instance
+* Generics 
+
+
+
 

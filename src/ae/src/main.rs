@@ -5,7 +5,7 @@ pub mod ast ;
 use ast::Expr ;
 use ast::{add, sub, num} ;
 use ast::Expr::{Op, Num} ;
-use ast::Opcode::{Add, Sub} ;
+use ast::Opr::{Add, Sub} ;
 
 lalrpop_mod!(pub ae) ;
 
@@ -52,6 +52,8 @@ fn main()
                       ) ;
   
     println!("e0: {}", e0) ;
+    println!("e0 AST: {:?}", e0) ;
+     // ### AST 구조로 출력하기 출력내용 Op(Op(Num(5),Sub,Num(1)), Add, Num(3))
     println!("interp(e0): {}", interp(e0)) ;
     println!("") ;
 
@@ -61,6 +63,7 @@ fn main()
     // e1은 ast.rs를 끌어다 와서 간단히 표기한 것, 가독성 개선
   
     println!("e1: {}", e1) ;
+    println!("e1 AST: {:?}", e1) ;
     println!("interp(e1): {}", interp(e1)) ;
     println!("") ;
 
@@ -73,6 +76,7 @@ fn main()
     //      unwrap() RV : Result에서 무조건 Ok 나온다고 가정하고 값을 까서 줌
   
     println!("e2: {}", e2) ;
+    println!("e2 AST: {:?}", e2) ;
     println!("interp(e2): {}", interp(e2)) ;
 
   // ####  앞으로 많이 쓸 것은 e2 표기

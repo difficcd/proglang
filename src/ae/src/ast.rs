@@ -6,10 +6,10 @@ use std::fmt ;
 // 직접 구현하지 않아도 Rust 가 알아서 enum 구조 파악하고 작성해줌
 pub enum Expr {
     Num(i32),
-    Op(Box<Expr>, Opcode, Box<Expr>),
+    Op(Box<Expr>, Opr, Box<Expr>),
     // Box<Expr> : recursive 
 
-    /* 그냥 Op(Expr, Opcode, Expr)로 정의해버리면 
+    /* 그냥 Op(Expr, Opr, Expr)로 정의해버리면 
        Expr 의 크기결정 불가능! (가능한 PL도 있기는 함)
        이런 이유로 Rust의 heap을 사용하는 pointer격 개념 필요
        malloc : Box, 메모리 잡아주면서 포인팅 가능
@@ -22,18 +22,18 @@ pub enum Expr {
 }
 
 #[derive(Debug, Copy, Clone)]
-pub enum Opcode {
+pub enum Opr {
     Add,
     Sub,
 }
 
 // Expr ::= num | (Expr + Expr) | (Expr - Expr) 
 // num ::= [0-9]+                *Reg ex 로 정의
-// Opcode ::= '+' | '-'
+// Opr ::= '+' | '-'
 
 // 이런 문법을 파싱해서 AST 만들어줌 (이렇게 정의된 object들의 집합)
 // RV : Rust-enum 은 | 의 역할을 해줄 수 있음
-// Opcode Add, Sub (constant) 
+// Opr Add, Sub (constant) 
 
 
 
@@ -42,12 +42,12 @@ pub enum Opcode {
 
 pub fn add (l: Box<Expr>, r: Box<Expr>) -> Box<Expr> 
 {
-    Box::new(Expr::Op(l, Opcode::Add, r))
+    Box::new(Expr::Op(l, Opr::Add, r))
 }
 
 pub fn sub (l: Box<Expr>, r: Box<Expr>) -> Box<Expr>
 {
-    Box::new(Expr::Op(l, Opcode::Sub, r))
+    Box::new(Expr::Op(l, Opr::Sub, r))
 }
 
 pub fn num (n: i32) -> Box<Expr>
@@ -69,13 +69,13 @@ impl fmt::Display for Expr
     }
 }
 
-impl fmt::Display for Opcode 
-    // Opcode Display 함수구현
+impl fmt::Display for Opr 
+    // Opr Display 함수구현
 {
     fn fmt (&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
-            Opcode::Add => write!(f, "+"),
-            Opcode::Sub => write!(f, "-")
+            Opr::Add => write!(f, "+"),
+            Opr::Sub => write!(f, "-")
         }
     }
 }

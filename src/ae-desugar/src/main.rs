@@ -3,7 +3,7 @@ use lalrpop_util::lalrpop_mod ;
 pub mod ast ;
 use ast::Expr ;
 use ast::Expr::{Op, Num, Neg} ;
-use ast::Opcode::{Add, Sub} ;
+use ast::Opr::{Add, Sub} ;
 
 lalrpop_mod!(pub ae) ;
 
@@ -44,11 +44,16 @@ fn main()
   
     let e0 = ae::ExprParser::new().parse("(-(5 - 1) + 3)").unwrap() ;
     println!("e0: {}", e0) ;
+    println!("e0 AST: {:?}", e0) ; // AST 출력 추가  
+                                    //  Op(Neg(Op(Num(5), Sub, Num(1))), Add, Num(3))
     println!("interp(e0): {}", interp(e0.clone())) ; // borrow를 위해 clone
     println!("") ;
 
     let e1 = desugar(e0.clone()) ;
     println!("e1=desugar(e0): {}", e1) ;
+    println!("e1 AST: {:?}", e1) ; // AST 출력 추가 
+                                  //  Op(Op(Num(0), Sub, Op(Num(5), Sub, Num(1))), Add, Num(3))
+                                  // desugaring에 의해 AST->AST 변환된 것을 확인할 수 있다!
     println!("interp(e1): {}", interp(e1)) ;
   
 }

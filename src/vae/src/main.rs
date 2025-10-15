@@ -4,8 +4,8 @@ use lalrpop_util::lalrpop_mod ;
 
 pub mod ast ;
 use ast::Expr ;
-use ast::Expr::{Op, Num, Ref, Val} ;
-use ast::Opcode::{Add, Sub} ;
+use ast::Expr::{Op, Num, Val, Use} ;
+use ast::Opr::{Add, Sub} ;
 
 lalrpop_mod!(pub vae) ;
 
@@ -24,7 +24,7 @@ fn interp (e: Box<Expr>, env: &BTreeMap::<String, i32>) -> i32
         Op(l, Add, r) => interp(l, env) + interp(r, env),
         Op(l, Sub, r) => interp(l, env) - interp(r, env),
         Num(n) => n,
-        Ref(id) => *env.get(&id).unwrap(),
+        Use(id) => *env.get(&id).unwrap(),
         // id 형태면 값을 가져오도록 env 에 역참조시킴
         Val(id, v, e) => {
         // 새 변수 선언하고, nenv(env복사본:scope구분위해) 에 바인딩
@@ -39,13 +39,15 @@ fn interp (e: Box<Expr>, env: &BTreeMap::<String, i32>) -> i32
 fn main() 
 {
     let env = BTreeMap::<String, i32>::new() ;
-    
-    // val 이라는 keyword 는 lalrpop 에 저장되어 있음!
-    let e = vae::ExprParser::new().parse("val i=3 in (i + (1 + i))").unwrap() ;
-    println!("e: {}", e) ;
-    println!("interp(e,env): {}", interp(e, &env)) ;
+    let e0 = vae::ExprParser::new().parse("val i=3 in (i + (1 + i))").unwrap() ;
+    println!("e0: {}", e0) ;
+    println!("e0: {:?}", e0) ; // AST 출력 
+                        // Val("i", Num(3), Op(Use("i"), Add, Op(Num(1), Add, Use("i"))))
+    println!("interp(e0,[]): {}", interp(e0, &env)) ;
 
-    let e = vae::ExprParser::new().parse("val i=3 in (i + val i=5 in (1 + i))").unwrap() ;
-    println!("e: {}", e) ;
-    println!("interp(e,env): {}", interp(e, &env)) ;
+    let e1 = vae::ExprParser::new().parse("val i=3 in (i + val i=5 in (1 + i))").unwrap() ;
+    println!("e1: {}", e1) ;
+    println!("e1: {:?}", e1) ;
+            // AST: Val("i", Num(3), Op(Use("i"), Add, Val("i", Num(5), Op(Num(1), Add, Use("i")))))
+    println!("interp(e1,[]): {}", interp(e1, &env)) ;
 }

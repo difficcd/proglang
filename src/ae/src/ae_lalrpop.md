@@ -13,10 +13,10 @@ pub Expr: Box<Expr> = {
 Num 규칙은 아래와 같음
 Num: i32 = {
     r"(-)?[0-9]+" => i32::from_str(<>).unwrap(),
-}
+}  
 즉, 정규식으로 숫자를 매칭하고, i32로 변환해서 반환하는것   
 저런식으로 => 이렇게되는건..   
-Box::new(Expr::Num(n))는 **Num에서 반환된 값(n)**을 사용해서   
+Box::new(Expr::Num(n))는 Num에서 반환된 값(n)을 사용해서   
 새로운 Expr::Num을 만들고, Box로 감싸 반환함  
 그래서 결과 타입이 Box<Expr>가 되는 것  
 

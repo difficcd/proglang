@@ -43,6 +43,12 @@ pub Expr: Box<Expr> 이것이 Expr이라는 이름을 가진 규칙은 Box<Expr>
 use std::str::FromStr;
 use crate::ast::{Expr, Opcode};
 
+// Rust에서 crate = 현재 프로젝트의 루트
+// use crate::ast::{Expr, Opr};
+//  → ast.rs에 정의된 Expr과 Opr를 현재 파일에서 바로 사용
+//  → 예: Box::new(Expr::Num(n)), Opr::Add
+
+Rust 모듈 시스템에서 다른 파일의 타입, 함수, 구조체를 가져오는 표준 방식
 grammar;
 
 

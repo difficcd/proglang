@@ -3,25 +3,24 @@
 *다운로드 후 실행에 문제가 없도록 md 파일에 작성
 
 <br>
-요약
 
+#요약
 pub Expr: Box<Expr> = {  
-<n:Num> => Box::new(Expr::Num(n)) ... }   
-<n:Num>은 Num 규칙을 실행해서 반환되는 값을 n이라는 이름에 바인딩함   
-<br>
+    <n:Num> => Box::new(Expr::Num(n)),  
+    "(" <l:Expr> <op:ExprOp> <r:Expr> ")" => Box::new(Expr::Op(l, op, r)),  
+    "(" <e:Expr> ")" => e,  
+};  
 
-Num 규칙은 아래와 같음
-Num: i32 = {
-    r"(-)?[0-9]+" => i32::from_str(<>).unwrap(),
-}  
-즉, 정규식으로 숫자를 매칭하고, i32로 변환해서 반환하는것   
-저런식으로 => 이렇게되는건..   
-Box::new(Expr::Num(n))는 Num에서 반환된 값(n)을 사용해서   
-새로운 Expr::Num을 만들고, Box로 감싸 반환함  
-그래서 결과 타입이 Box<Expr>가 되는 것  
+<n:Num> 을 받았다 : Box::new(Expr::Num(n)) 로 반환  
+"(" <l:Expr> <op:ExprOp> <r:Expr> ")" 을 받았다 :  Box::new(Expr::Op(l, op, r)) 로 반환  
+"(" <e:Expr> ")" 를 받았다 : e로 반환  
+
+이런식으로 해석하면 됨 (위에있는 e, Box::new... 다 Box<Expr>이다  
+pub Expr: Box<Expr> 이것이 Expr이라는 이름을 가진 규칙은 Box<Expr>을 반환한다는 뜻임  
 
 
-Summary  
+
+* Summary  
 1 입력 문자열을 문법에 맞게 분해하고   
 2 사용자가 작성한 Rust 코드(예: Box::new(Expr::Num(n)))를 실행해서  
 3 AST를 만들어주는 역할이 LALRPOP역할  

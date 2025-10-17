@@ -3,16 +3,42 @@
 *다운로드 후 실행에 문제가 없도록 md 파일에 작성
 
 <br>
+요약
+
+pub Expr: Box<Expr> = {  
+<n:Num> => Box::new(Expr::Num(n)) ... }   
+<n:Num>은 Num 규칙을 실행해서 반환되는 값을 n이라는 이름에 바인딩함   
+<br>
+
+Num 규칙은 아래와 같음
+Num: i32 = {
+    r"(-)?[0-9]+" => i32::from_str(<>).unwrap(),
+}
+즉, 정규식으로 숫자를 매칭하고, i32로 변환해서 반환하는것   
+저런식으로 => 이렇게되는건..   
+Box::new(Expr::Num(n))는 **Num에서 반환된 값(n)**을 사용해서   
+새로운 Expr::Num을 만들고, Box로 감싸 반환함  
+그래서 결과 타입이 Box<Expr>가 되는 것  
+
+
+Summary  
+1 입력 문자열을 문법에 맞게 분해하고   
+2 사용자가 작성한 Rust 코드(예: Box::new(Expr::Num(n)))를 실행해서  
+3 AST를 만들어주는 역할이 LALRPOP역할  
+
+<br>
 
 ```
 // 사실 이 코드는 lalrpop library 가 이해하는 script code로 작성되었고 Rust code는 아님  
 // lalrpop lib 이 해당 스크립트를 해석하여 문법을 파싱하는 Rust code를 만들어준다고 이해  
 
 
-// [ 구조 ]  
+// [ 구조 ]  =========
 // (1) valid String 을 위한 grammar   
-// (2) 정의된 grammar 를 인식하는 동시에 AST 코드를 생성하는 코드  
-// 각 grammar Rule 이 발생할 때마다 어떤 AST를 어떻게 만들어야 하는지가 프로그래밍 되어있음
+// (2) 정의된 "grammar 를 인식하는 동시에 AST 코드를 생성하는 코드" 
+// 각 "grammar Rule 이 발생할 때마다 어떤 AST를 어떻게 만들어야 하는지"가 프로그래밍 되어있음
+
+
 
 
 use std::str::FromStr;

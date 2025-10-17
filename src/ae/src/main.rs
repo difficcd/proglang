@@ -74,6 +74,12 @@ fn main()
     // lalrpop의 파서가 parse() 를 통해 작동하여 String 을 자동으로 파싱해줌
     //    * 문법이 틀리면? : return이 Result이므로 result.rs 예제와 깉이 error 출력
     //      unwrap() RV : Result에서 무조건 Ok 나온다고 가정하고 값을 까서 줌
+
+    // String 을 파서가 바로 해체를 해주는거임
+    // 위에있는건 String이 아니니깐 걍 쌩으로 AST를 주고 걔를 Semantics 함수들로 
+    // evalutaion 한 결과만 뱉는거고 아래녀석은 파서가 해체하고 결과뱉는거
+    // e2 만 lalrpop이 필요한거임. e0, e1은 lalrpop 파일이 없어도 실행가능(애초에 AST였으니까)
+    // String을 AST형식으로 바꿔주는게 lalrpop 이라는 애가 하는일
   
     println!("e2: {}", e2) ;
     println!("e2 AST: {:?}", e2) ;

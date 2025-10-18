@@ -4,7 +4,9 @@ use std::fmt ;
 pub enum Expr {
     Num(i32),
     Op(Box<Expr>, Opr, Box<Expr>),
-    Neg(Box<Expr>),
+    Neg(Box<Expr>), 
+	// -(1+2) 같은 표현이 들어갈 수 있기에
+	// Neg 안의 요소는 Box<Expr> 레퍼런스이어야 함
 }
 
 #[derive(Debug, Copy, Clone)]
@@ -30,6 +32,7 @@ pub fn num (n: i32) -> Box<Expr> {
 
 pub fn neg (e: Box<Expr>) -> Box<Expr> {
     Box::new(Expr::Neg(e)) 
+	// Box<Expr> -> Box<Expr> 임에 주의하라 것
 }
 
 

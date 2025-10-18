@@ -4,6 +4,7 @@ pub mod ast ;
 use ast::Expr ;
 use ast::Expr::{Op, Num, Neg} ;
 use ast::Opr::{Add, Sub} ;
+use ast::{add, sub, neg, num} ;
 
 lalrpop_mod!(pub ae) ;
 
@@ -24,6 +25,9 @@ fn desugar (e: Box<Expr>) -> Box<Expr>
   // Desugaring method
   // (e: Box<Expr>) -> Box<Expr> : AST 를 AST 로 넘겨주는 것
   //                               (AST 수준에서 바꾸는 것)
+  
+  // AST수준에서의 변형이므로, 메모리공간을 직접 잡아줘야함 새로
+  // desugar 과정에서 일어나는 AST변형은, AST생성 시 Box::new로 하는것과 동일하게 힙잡아야함
   
 {
     match *e {
@@ -55,5 +59,12 @@ fn main()
                                   //  Op(Op(Num(0), Sub, Op(Num(5), Sub, Num(1))), Add, Num(3))
                                   // desugaring에 의해 AST->AST 변환된 것을 확인할 수 있다!
     println!("interp(e1): {}", interp(e1)) ;
+
+
+    let e2 = add(neg(sub(num(5),num(1))),num(3)) ;
+    println!("use function (e2): {}", e2) ;
+    println!("e2 AST: {:?}", e2) ;
+    println!("interp(e2): {}", interp(e2)) ;
+    // 요녀석은 함수 써서 간략화한 버전. 
   
 }

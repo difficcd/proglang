@@ -16,7 +16,7 @@ fn interp (e: Box<Expr>) -> i32
   
   /*       (e: Box<Expr>) -> i32 :
            Box<Expr> 받고 (domain) i32로 보내주는(codomain) 함수
-           e 자체는 reference 이기 때문에 *e가 e가 가리키는 값이 됨
+           >> e 자체는 reference 이기 때문에 *e가 e가 가리키는 값이 됨
   */
 {
     match *e {
@@ -32,14 +32,15 @@ fn interp (e: Box<Expr>) -> i32
 
 fn main() 
 {
+// 이부분은 생각나는대로 적고, 모든 Op, Num 에다가 Box::new로 힙공간을 주면됨
+// Box::new 만 빠뜨리지 않고 잘 적으면 웬만해서는 문제가 없음
     let e0 = Box::new( Op( Box::new( Op(Box::new( Num(5) ), 
                                      Sub, 
                                      Box::new( Num(1) )) 
                                     ), 
-                          // leftchild : Op(left:Num(5),sub,Num(1))
-                          
-                           Add, // == Op
+                           Add,
                            Box::new( Num(3) )) 
+                      
                           // rightchild : Exprssion으로서 Num(3)
                           //           heap 에다 올려놓고 주소를 줌
         
@@ -60,7 +61,7 @@ fn main()
 
   
     let e1 = add(sub(num(5), num(1)), num(3)) ;    
-    // e1은 ast.rs를 끌어다 와서 간단히 표기한 것, 가독성 개선
+    // e1은 함수를 통해 가독성을 개선해준 꼴임
   
     println!("e1: {}", e1) ;
     println!("e1 AST: {:?}", e1) ;
@@ -75,6 +76,7 @@ fn main()
     //    * 문법이 틀리면? : return이 Result이므로 result.rs 예제와 깉이 error 출력
     //      unwrap() RV : Result에서 무조건 Ok 나온다고 가정하고 값을 까서 줌
 
+  
     // String 을 파서가 바로 해체를 해주는거임
     // 위에있는건 String이 아니니깐 걍 쌩으로 AST를 주고 걔를 Semantics 함수들로 
     // evalutaion 한 결과만 뱉는거고 아래녀석은 파서가 해체하고 결과뱉는거

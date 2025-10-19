@@ -4,8 +4,14 @@ use std::fmt ;
 pub enum Expr {
     Num(i32),
     Op(Box<Expr>, Opr, Box<Expr>),
+	
     Val(String, Box<Expr>, Box<Expr>),
     Use(String)
+	// Val("i", Num(5), Op(Use("i"), Add Num(10)))
+	//      >> val i=5 in (i + 10)
+
+	// Use 는 Num(3)으로 매핑된 변수 i를 사용한다는 뜻
+	// :Use(id) => *env.get(&id).unwrap()
 }
 
 #[derive(Debug, Copy, Clone)]
@@ -14,6 +20,8 @@ pub enum Opr {
     Sub,
 }
 
+
+// helper functions 
 pub fn add (l: Box<Expr>, r: Box<Expr>) -> Box<Expr> 
 {
     Box::new(Expr::Op(l, Opr::Add, r))

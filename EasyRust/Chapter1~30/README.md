@@ -1,7 +1,7 @@
 #### EasyRust 복습 
 * 실습용 주석제거 코드로 개념 복기
 * GPT로 개념별 코드구현 연습 & 기출QA 실습part 연습
-  - ProgLangEasyRust01 : 01~08
+  - leeow계정; ProgLangEasyRust01 : 01~08
 
 <br>
 

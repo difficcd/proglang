@@ -1,3 +1,10 @@
+### ae, ae-desugar, vae memo
+* AST, Interpreter 구현과 main함수에서의 test 모두 익히기
+* Display trait 구현과정은 일단 스킵
+* VS Code 에서 창 두개 띄워두고 익히기 (Desktop 경로 2개)
+
+<br>
+
 ### 기본 명령어 정리  
 
 [ cmd/powershell ]

@@ -2,6 +2,7 @@
 * AST, Interpreter 구현과 main함수에서의 test 모두 익히기
 * Display trait 구현과정은 일단 스킵
 * VS Code 에서 창 두개 띄워두고 익히기 (Desktop 경로 2개)
+* proglang-main-copy: 구현 연습, proglang-main: 주석 작성(github)
 
 <br>
 

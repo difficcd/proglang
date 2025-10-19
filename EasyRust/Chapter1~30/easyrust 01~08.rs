@@ -114,5 +114,91 @@ fn main() {
 }
 
 
+// ######## 실습용 주석 제거 코드 #########
+
+
+
+use std::mem::size_of;
+
+fn number() -> i32 { 
+    8 
+}
+
+fn multiply(number_one: i32, number_two: i32) { 
+    let result = number_one * number_two;
+    println!("{} times {} is {}", number_one, number_two, result);
+}
+
+
+fn main() {
+
+    let num = 100 ; 
+    let x : i8 = 10 ; 
+    let _x : i16 = 10 ;
+    let _한글변수 : i16 = num + _x ;
+
+    let _casting = x + _x as i8 ; 
+    
+    let _c = 'a' as u8 ; 
+    println!("{}", _c) ; 
+    println!("Hello, world!") ; 
+
+    println!("char : {} bytes", size_of::<char>()) ; 
+    println!("len of a  : {}", "a".len()) ;
+    println!("len of 國 : {}", "國".len()) ; 
+
+    let slice = "國國國" ;
+    println!("len of abcde {}", "abcde".len()) ;
+    println!("Slice is {} bytes and also {} characters.", slice.len(), slice.chars().count());
+
+
+    let num = 10u8 ;  
+    let big_num = 100_000_000_i32 ;  
+    println!("{}, {}", num, big_num) ;
+
+    let my_float_1 = 5. ;
+    let my_float_2 : f32 = 8.5; 
+    println!("{}, {}", my_float_1, my_float_2) ;
+
+
+    println!("Hello, world number {}!", number()) ;
+
+
+
+  
+    let my_city = "Seoul" ;
+  
+    println!( "The city is {city}", 
+        city = my_city 
+    ) ;
+
+  
+    println!( "The city is {0}",  my_city ) ;
+
+    println!("The city is {my_city}") ; 
+
+
+    multiply(8, 9) ; 
+    let some_number = 10 ;
+    let some_other_number = 2 ;
+    multiply(some_number, some_other_number) ;
+
+    let my_number = {
+        let second_number = 8 ;
+            second_number + 9 
+    };
+
+    print!("My number is: {}\n", my_number); 
+
+    let my_number = {
+        let second_number = 8 ; 
+        second_number + 9 ; 
+    };
+
+    println!("My number is: {:?}", my_number) ; 
+
+}
+
+
 
 

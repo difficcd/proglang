@@ -14,10 +14,10 @@ fn main() {
 
     let array_of_ten = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     // Index ranges are exclusive (they do not include the last number)
-    let arr1 = &array_of_ten[2..5];   println!("{:?}", arr1); // 2 3 4
-    let arr2 = &array_of_ten[1..];   println!("{:?}", arr2);  // 1~*
-    let arr3 = &array_of_ten[..5];   println!("{:?}", arr3); // 0~5
-    let arr4 = &array_of_ten[..];   println!("{:?}", arr4); // 0~*
+    let arr1 = &array_of_ten[2..5];   println!("{:?}", arr1); // 3 4 5 
+    let arr2 = &array_of_ten[1..];   println!("{:?}", arr2);  // 2~*
+    let arr3 = &array_of_ten[..5];   println!("{:?}", arr3); // 1~5
+    let arr4 = &array_of_ten[..];   println!("{:?}", arr4); // 1~*
 
   
 // Chapter 21 : Vectors

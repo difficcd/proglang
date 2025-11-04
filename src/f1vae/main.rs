@@ -15,7 +15,7 @@ use ast::Opr ;
 use ast::Opr::{Add, Sub} ;
 use ast::{add, sub, num, let_, useid} ;
 
-lalrpop_mod!(pub vae) ;
+lalrpop_mod!(pub f1vae) ; 
 
 fn interp (e: Box<Expr>, env: &Env, fenv: &FEnv) -> i32 
 {

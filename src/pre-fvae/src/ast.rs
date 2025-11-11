@@ -7,7 +7,7 @@ pub enum Expr {
     Let(String, Box<Expr>, Box<Expr>),
     Use(String),
 
-    Fun(String, Box<Expr>), // fun x -> body
+    Fun(String, Box<Expr>), // fun x = body
     App(Box<Expr>, Box<Expr>), // (f arg)
 
 }

@@ -1,0 +1,40 @@
+use std::str::FromStr ;
+use crate::ast::{Expr,Opr} ;
+
+grammar;
+
+// An expression is a `let` or a `lambda` or a binary operation or an application expression.
+pub Expr: Box<Expr> = {
+    "let" <x:Id> "=" <e1:Expr> "in" <e2:Expr> => Box::new(Expr::Let(String::from(x), e1, e2)),
+    "𝜆" <x:Id> "." <e:Expr> => Box::new(Expr::Fun(String::from(x), e)),
+    "(" <l:Expr> <op:ExprOp> <r:Expr> ")" => Box::new(Expr::Op(l, op, r)),
+    App,
+};
+
+// An application expression can be a function call.
+// A function call has higher precedence than the things in `Expr`.
+App: Box<Expr> = {
+    <f:App> "(" <arg:Expr> ")" => Box::new(Expr::App(f, arg)),
+    Term,
+};
+
+// A term is a number, an identifier, or a parenthesized expression.
+Term: Box<Expr> = {
+    <n:Num> => Box::new(Expr::Num(n)),
+    <x:Id> => Box::new(Expr::Use(String::from(x))),
+    "(" <e:Expr> ")" => e,
+};
+
+
+ExprOp: Opr = {
+    "+" => Opr::Add,
+    "-" => Opr::Sub,
+};
+
+Id: String = {
+    r"[a-zA-Z][a-zA-Z0-9]*" => String::from(<>),
+}
+
+Num: i32 = {
+    r"(-)?[0-9]+" => i32::from_str(<>).unwrap(),
+}

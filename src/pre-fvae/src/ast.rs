@@ -7,8 +7,8 @@ pub enum Expr {
     Let(String, Box<Expr>, Box<Expr>),
     Use(String),
 
-    Fun(String, Box<Expr>), // fun x = body
-    App(Box<Expr>, Box<Expr>), // (f arg)
+    Fun(String, Box<Expr>), // fun x -> body
+    App(Box<Expr>, Box<Expr>), // f(arg)
 
 }
 
@@ -30,7 +30,7 @@ impl fmt::Display for Expr
 			Expr::Use(id) => write!(f, "{}", id),
 
 			Expr::Fun(param, body) => write!(f, "(fun {} = {})", param, body),
-			Expr::App(func, arg) => write!(f, "({} {})", func, arg),
+			Expr::App(func, arg) => write!(f, "{}({})", func, arg),
 		}
 	}
 }

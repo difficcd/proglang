@@ -106,20 +106,22 @@ fn main()
     
 
     // let add = 𝜆y.𝜆x.(x + y)
-    // let add5 = (add 5)
-    // (add5 3)  
+    // let add5 = add(5)
+    // add5(3)
     
     // => 8 
 
-    let e_str = "let add = 𝜆x.(𝜆y.(x + y)) in (let add5 = (add 5) in (add5 3))";
+    let e_str = "let add = 𝜆x.(𝜆y.(x + y)) in (let add5 = add(5) in add5(3))";
     let e = vae::ExprParser::new().parse(e_str).unwrap();
-    println!("\nTest 1 (Curried Lambda): {}", e);
-    println!("Result: {}", interp(e, &env)); // 8
+    println!("\n\nTest 1 (Curried Lambda): {}", e);
+    println!("\nAST of e1: {:?}", e);
+    println!("\nResult: {}", interp(e, &env)); // 8
     
-    // let f = 𝜆y.𝜆x.(y + x) in ((f 1) 2) ==> 결과 3
-    let e2_str = "let f = (𝜆y.(𝜆x.(y + x))) in ((f 1) 2)";
+    // let f = 𝜆y.𝜆x.(y + x) in f(1)(2) ==> 결과 3
+    let e2_str = "let f = (𝜆y.(𝜆x.(y + x))) in f(1)(2)";
     let e2 = vae::ExprParser::new().parse(e2_str).unwrap();
-    println!("\nTest 2 (User Example): {}", e2);
-    println!("Result: {}", interp(e2, &env)); // 3
+    println!("\n\nTest 2 (User Example): {}", e2);
+    println!("\nAST of e2: {:?}", e2);
+    println!("\nResult: {}", interp(e2, &env)); // 3
 
 }
